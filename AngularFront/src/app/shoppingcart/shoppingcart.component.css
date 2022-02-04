@@ -1,0 +1,51 @@
+.mat-elevation-z8 {
+    margin-top: 25px;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+}
+
+.price, .sum {
+    font-size:xx-large;
+    text-align: right;
+}
+
+.product {
+    font-size:xx-large;
+}
+
+.trash {
+    width: 10%;
+    cursor: pointer;
+    text-align: right;
+}
+
+#notification {
+    border-radius: 10px;
+    position: fixed;
+    background-color: rgb(248, 160, 60);
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    left: 40%;
+    top: 110%;
+    animation-name: notification;
+    animation-duration: 10s;
+  }
+  
+  @keyframes notification {
+    0% {top: 110%; opacity: 1;}
+    40% {top:80%; opacity: 1;}
+    100% {top:80%; opacity: 0;}
+  }
+
+  .EmptyCart {
+      margin: auto;
+      width: 300px;
+  }
+
+  .btn-success {
+      width: 200px;
+  }

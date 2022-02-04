@@ -1,0 +1,73 @@
+<mat-card *ngIf="!logged" class="logInCard">
+  <mat-card-title>Kirjautuminen</mat-card-title>
+  <mat-card-content>
+    <div class="container">
+      <div class="username">
+        <label>käyttäjänimi</label>
+        <input type="text" [(ngModel)]=username (ngModelChange)="usernameChange($event)" />
+      </div>
+      <div class="password">
+        <label>salasana</label>
+        <input type="password" [(ngModel)]=password (ngModelChange)="passwordChange($event)" />
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="logIn()">Kirjaudu</button>
+    <button class="btn btn-primary" (click)="SignUp(content)">Lisää käyttäjätunnus</button>
+    <div *ngIf="errori" class="error"> {{errori}} </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="logged" class="userCard">
+  <mat-card-title>Kirjautuminen<span class="edit" class="material-icons" ngbTooltip="muuta"
+      (click)="editUser()">edit</span></mat-card-title>
+  <mat-card-content>
+    <div *ngIf="logInfo" class="logInfo"> {{logInfo}} </div>
+    <div class="userInfo">
+      <label>nimi:</label>
+      <input type="text" [disabled]="edit" [ngModel]="editedUser.name" (ngModelChange)="userEditName($event)" />
+      <br>
+      <br>
+      <label>osoite:</label>
+      <input type="text" [disabled]="edit" [ngModel]="editedUser.address" (ngModelChange)="userEditAddress($event)" />
+      <br>
+      <br>
+      <label>sähköposti:</label>
+      <input type="text" [disabled]="edit" [ngModel]="editedUser.email" (ngModelChange)="userEditEmail($event)" />
+      <br>
+      <br>
+      <div>
+        <button class="btn btn-primary" (click)="logOut()">Kirjaudu ulos</button>
+        <button *ngIf="!edit" class="btn btn-success button" (click)="saveEdit()">OK</button>
+      </div>
+      <div *ngIf="errori" class="error"> {{errori}} </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Käyttäjätilin luonti</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group userInfo">
+        <label>Käyttäjänimi</label>
+        <input type="text" [(ngModel)]="newUser.name" name="name" />
+        <label>Osoite</label>
+        <input type="text" [(ngModel)]="newUser.address" name="address" />
+        <label>Email</label>
+        <input type="email" [(ngModel)]="newUser.email" name="email" />
+        <label>Salasana</label>
+        <input type="text" [(ngModel)]="newUser.pw" name="pw" />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <div>{{status}}</div>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Peruuta click')">Peruuta</button>
+    <button type="button" class="btn btn-success" (click)="createUser()">Tallenna</button>
+  </div>
+</ng-template>

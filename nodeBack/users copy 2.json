@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "admin",
+        "address": "",
+        "email": "",
+        "pw": "admin",
+        "sessionId": ""
+    },
+    {
+        "id": 2,
+        "name": "risto",
+        "address": "Makkosenkuja 44",
+        "email": "risto@koodia.net",
+        "pw": "risto",
+        "sessionId": ""
+    }
+]

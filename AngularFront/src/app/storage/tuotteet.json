@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "category": "Kategoria 1",
+        "name": "tuote 1",
+        "description": "Tuotteen 1 kuvaus",
+        "price": 10,
+        "inStock": 11
+    },
+    {
+        "id": 2,
+        "category": "Kategoria 1",
+        "name": "tuote 2",
+        "description": "Tuotteen 2 kuvaus",
+        "price": 20,
+        "inStock": 22
+    },
+    {
+        "id": 3,
+        "category": "Kategoria 2",
+        "name": "tuote 3",
+        "description": "Tuotteen 3 kuvaus",
+        "price": 30,
+        "inStock": 33
+    },
+    {
+        "id": 4,
+        "category": "Kategoria 3",
+        "name": "tuote 4",
+        "description": "Tuotteen 4 kuvaus",
+        "price": 40,
+        "inStock": 44
+    },
+    {
+        "id": 5,
+        "category": "Kategoria 3",
+        "name": "tuote 5",
+        "description": "Tuotteen 5 kuvaus",
+        "price": 50,
+        "inStock": 55
+    }
+]

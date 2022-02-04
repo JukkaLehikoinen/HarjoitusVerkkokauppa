@@ -1,0 +1,77 @@
+h3, p {
+    text-align: center;
+}
+
+.productCell {
+    cursor: pointer;
+}
+
+.searchDiv {
+    margin-top: 10px;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.select {
+    display: inline;
+    margin-right: 50px;
+}
+
+.textSearch {
+    margin-left: 50px;
+    width: 400px;
+
+}
+
+.image {
+    display: inline;
+}
+
+.description, .rating {
+    text-align: center;
+}
+
+.price {
+    font-size:xx-large;
+    text-align: right;
+    display: inline;
+    float: right;
+}
+
+.instock {
+    font-size: larger;
+    text-align: right;
+    display: inline;
+    float: right;
+}
+
+#notification {
+    border-radius: 10px;
+    position: fixed;
+    background-color: greenyellow;
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    left: 40%;
+    top: 110%;
+    animation-name: notification;
+    animation-duration: 10s;
+  }
+  
+  @keyframes notification {
+    0% {top: 110%; opacity: 1;}
+    40% {top:80%; opacity: 1;}
+    100% {top:80%; opacity: 0;}
+  }
+
+.deleteButton {
+    border-radius: 10px;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+}
+
+ 

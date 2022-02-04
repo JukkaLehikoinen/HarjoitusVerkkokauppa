@@ -1,0 +1,97 @@
+<div *ngIf="!emptyList; else elseBlock">
+    <table mat-table [dataSource]="shoppingCart" class="mat-elevation-z8">
+        <!-- Item Column -->
+        <ng-container matColumnDef="picture">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let product"> <img heigth="100px" width="100px"
+                    src={{getPicture(product.picture)}} /> </td>
+            <td mat-footer-cell *matFooterCellDef><button class="btn btn-danger" (click)="clearShoppingList()">Tyhjennä
+                    ostoskori</button></td>
+        </ng-container>
+
+        <!-- Cost Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef class="product"> Tuote </th>
+            <td mat-cell *matCellDef="let product" class="product"> {{product.name}} </td>
+            <td mat-footer-cell *matFooterCellDef><button class="btn btn-success" (click)="openDetails(content)">Tilaa</button></td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef class="price"> Hinta </th>
+            <td mat-cell *matCellDef="let product" class="price"> {{product.price}} € </td>
+            <td mat-footer-cell *matFooterCellDef class="sum"> Kokonaissumma {{getTotalCost()}} € </td>
+        </ng-container>
+
+        <ng-container matColumnDef=" ">
+            <th mat-header-cell *matHeaderCellDef class="trash"></th>
+            <td mat-cell *matCellDef="let product; let i = index" class="trash" (click)="deleteItem(product, i)"> <span
+                    class="material-icons" ngbTooltip="Poista {{product.name}} ostoskorista">remove_shopping_cart</span> </td>
+            <td mat-footer-cell *matFooterCellDef class="trash"></td>
+        </ng-container>
+        <!-- Item Description Column -->
+
+        <!-- The table will render two header rows, one data row per data object, and two footer rows. -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="example-first-header-row">
+        </tr>
+        <tr mat-header-row *matHeaderRowDef="[]" class="example-second-header-row">
+        </tr>
+
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr mat-footer-row *matFooterRowDef="displayedColumns" class="example-first-footer-row"></tr>
+        <tr mat-footer-row *matFooterRowDef="[]" class="example-second-footer-row"></tr>
+    </table>
+</div>
+<ng-template #elseBlock>
+    <mat-card class="EmptyCart">
+        <mat-card-title>Ostoskori</mat-card-title>
+        <mat-card-content>
+            <br>
+            <p>Ostoskorisi sisältö on tällä hetkellä tyhjä :/ Osta jotain... Äkkiä</p>
+            <br>
+        </mat-card-content>
+    </mat-card>
+</ng-template>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Tilauksen vahvistus</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <table>
+            <tr>
+            <th>Vastaanottaja:</th>
+            <td>{{userData.name}}</td>
+            </tr><tr>
+            <th>Osoite:</th>
+            <td>{{userData.address}}</td>
+          </tr><tr>
+            <th>Sähköposti:</th>
+            <td>{{userData.email}}</td>
+            </tr>
+          </table>
+          <hr>
+          <table>
+            <th>Tuotteet</th>
+            <th>Hinta</th>
+            <tr *ngFor="let tuote of shoppingCart"> 
+              <td>{{tuote.name}}</td>
+              <td>{{tuote.price}} €</td>
+            </tr>
+          </table>
+          <hr>
+          <h3 style="text-align: center;">Kokonaishinta: {{getTotalCost()}} €</h3>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Peruuta click')">Peruuta</button>
+      <button type="button" class="btn btn-primary" (click)="makeOrder()">Vahvista tilaus
+      </button>
+    </div>
+  </ng-template>

@@ -1,0 +1,74 @@
+.logInCard, .userCard {
+    margin: auto;
+    margin-top: 50px;
+    width: 57%;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.username label {
+    display: block;
+    text-align: center;
+}
+
+.username {
+    display: inline-block;
+} 
+
+.password label {
+    display: block;
+    text-align: center;
+}
+
+.password {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.error {
+    color: crimson;
+}
+
+.logInfo {
+    margin-top: 20px;
+}
+
+.userInfo label {
+    display: block;
+}
+
+.userInfo input {
+    width: 60%;
+}
+
+.mat-card-title span {
+    margin-left: 90%;
+    color:crimson;
+    cursor: pointer;
+}
+
+.button {
+    margin-left: 90%;
+}
+
+#notification {
+    border-radius: 10px;
+    position: fixed;
+    background-color: greenyellow;
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    left: 40%;
+    top: 110%;
+    animation-name: notification;
+    animation-duration: 10s;
+  }
+  
+  @keyframes notification {
+    0% {top: 110%; opacity: 1;}
+    40% {top:80%; opacity: 1;}
+    100% {top:80%; opacity: 0;}
+  }
